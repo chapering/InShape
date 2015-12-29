@@ -1,0 +1,57 @@
+# Project: devcpp-dtivis
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = release/devcpp-dtivis_private.res
+OBJ  = release/bitmap.o release/cppmoth.o release/GLcppmoth.o release/GLgadget.o release/GLiboxmoth.o release/GLoader.o release/iselbox.o release/singleitr.o release/situbeRender.o $(RES)
+LINKOBJ  = release/bitmap.o release/cppmoth.o release/GLcppmoth.o release/GLgadget.o release/GLiboxmoth.o release/GLoader.o release/iselbox.o release/singleitr.o release/situbeRender.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/Users/hcai/Desktop/devcpp-dtivis/GL" -lglut32 -lglu32 -lopengl32   
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/Users/hcai/Desktop/devcpp-dtivis"  -I"C:/Users/hcai/Desktop/devcpp-dtivis/src" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/Users/hcai/Desktop/devcpp-dtivis"  -I"C:/Users/hcai/Desktop/devcpp-dtivis/src" 
+BIN  = release/devcpp-dtivis.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before release/devcpp-dtivis.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "release\devcpp-dtivis.exe" $(LIBS)
+
+release/bitmap.o: src/bitmap.cpp
+	$(CPP) -c src/bitmap.cpp -o release/bitmap.o $(CXXFLAGS)
+
+release/cppmoth.o: src/cppmoth.cpp
+	$(CPP) -c src/cppmoth.cpp -o release/cppmoth.o $(CXXFLAGS)
+
+release/GLcppmoth.o: src/GLcppmoth.cpp
+	$(CPP) -c src/GLcppmoth.cpp -o release/GLcppmoth.o $(CXXFLAGS)
+
+release/GLgadget.o: src/GLgadget.cpp
+	$(CPP) -c src/GLgadget.cpp -o release/GLgadget.o $(CXXFLAGS)
+
+release/GLiboxmoth.o: src/GLiboxmoth.cpp
+	$(CPP) -c src/GLiboxmoth.cpp -o release/GLiboxmoth.o $(CXXFLAGS)
+
+release/GLoader.o: src/GLoader.cpp
+	$(CPP) -c src/GLoader.cpp -o release/GLoader.o $(CXXFLAGS)
+
+release/iselbox.o: src/iselbox.cpp
+	$(CPP) -c src/iselbox.cpp -o release/iselbox.o $(CXXFLAGS)
+
+release/singleitr.o: src/singleitr.cpp
+	$(CPP) -c src/singleitr.cpp -o release/singleitr.o $(CXXFLAGS)
+
+release/situbeRender.o: src/situbeRender.cpp
+	$(CPP) -c src/situbeRender.cpp -o release/situbeRender.o $(CXXFLAGS)
+
+release/devcpp-dtivis_private.res: devcpp-dtivis_private.rc 
+	$(WINDRES) -i devcpp-dtivis_private.rc --input-format=rc -o release/devcpp-dtivis_private.res -O coff 
