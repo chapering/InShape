@@ -1,0 +1,22 @@
+[Mouse Action]
+Left Button      : rotate around X/Y axis (or stretching box)
+Right Button     : move object (or box)
+Middle Button    : toggle lighting (or change lighting position)
+Ctrl+Left Button : rotate around Z axis
+Ctrl+Right Button: zoom in/out object (or box) 
+
+[Keyboard Mapping]
+Home             : reset the scene
+Space            : go to next task
+F10              : enable/disable boxes
+F5               : toggle synchronization(in multiview mode)
+F4               : remove the most recently visited box
+F3               : add a box by duplicating the most recently visited
+F2               : toggle associate interplay among boxes (AND/OR)
+F1               : toggle interaction prompt text
+d                : toggle color/monochromatic rendering
+m                : alternating color encoding
+n                : next DWI image
+o                : toggle DWI image embedding
+p                : previous DWI image
+r                : switch between selection/removal mode of box
