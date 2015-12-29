@@ -1,0 +1,63 @@
+
+I:	How to select a ROI
+---------------------------------------------------------------------------
+
+Although this is no fixed procedure to select ROIs in general with this tool,
+there are certain tips on how to make full use of the selection boxes to choose 
+target fibers.
+
+
+1. use box with ACTIVE selection mode to pick out target fibers.
+
+2. use box with EXCLUSIVE selection mode to kick out unwanted fibers.
+
+3. use "Congrunt scaling" to quick narrow down the scope of selection.
+
+4. use "streamline context" to retrieve the spatial relationship of the selected
+fibers and its surrounding fibers that have been removed. Turn it off when the
+context can obstruct your perception.
+
+5. Use the "brushing" mode to make the box work like an eraser to wipe few unwanted
+fibers.  Please also note with this mode:
+
+(1) When in the "brushing" mode, any box can be safely deleted without
+changing fiber selection status.
+
+(2) If you made undesirable removal of fibers, the easiest way to get them back is
+to switch off the brushing mode.
+
+6. Note that box can be freely duplicated and removed. With multiple boxes, the
+most commonly used setting is having some box in ACTIVE mode and others in
+EXCLUSIVE mode.
+
+7. Try to switch between the AND and OR pattern ( clicking '&' and '|' widgets )
+if you find current pattern is not sufficiently helpful.
+
+8. When boxes are too small to hold widgets, you can right click one of its
+vertices to invoke the short-cut menu which contains equivalent functions to the
+box widgets.
+
+
+II:	How to save a ROI
+---------------------------------------------------------------------------
+
+After finalize a ROI definition, please use following functions to save it.
+
+1. Press F11 and F12 (the order does not matter) to save the bundle region.
+
+2. [Optional step] Try to leave only one box that covers one end of the fiber bundle and then
+press PAGEUP or PAGEDOWN. 
+
+  * Here is a trick to leave only one box when there are multiple boxes to cramp
+  * together a single fiber bundle: 
+	(1) switch to "brushing" mode.
+	(2) make a trivial move with each of the unwanted boxes.
+	(3) delete the unwanted boxes one by another.
+	Now you keep the fiber bundles still there and only a box left.
+
+
+
+
+
+
+
