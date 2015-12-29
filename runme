@@ -1,0 +1,5 @@
+#!/bin/bash
+./singleitr -f ~/test.data
+
+# for multiple dataset
+#./multiviewitr -f ~/test.data -f ~/test.data -c
