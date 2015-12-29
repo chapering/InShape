@@ -1,0 +1,181 @@
+1. What Is Contained/Available with This Tool
+-------------------------------------------------------------------------------
+This tool includes three executables as follows:
+
+. singleitr
+	the single DTI streamtube model render, it serves to visualize a single DTI
+	data model.
+
+	An example of the most commonly used scenario of this tool might be:
+	./singleitr -f ~/dtidata/normal/normal_s1.data
+
+	if you want to apply the 2D skeletonic projection to assist your 3D
+	exploration, you need to further indicate where the skeleton geometry is by
+	using the "-s" option like:
+	./singleitr -f ~/dtidata/normal/normal_s1.data -s ~/dtidata/normal/skeleton/normalSkeleton_s1.data
+
+	if you want to load DWI b0 image as reference, please indicate the slice
+	directory with "-d" option like:
+	./singleitr -f ~/dtidata/normal/normal_s1.data -d ~/dtidata/normal/b0
+
+. multiviewitr
+	the multiple view DTI streamtube model render, it serves to visualize
+	multiple DTI data models in a window.
+
+	An example of the most commonly used scenario of this tool might be:
+	./multiviewitr -f ~/dtidata/normal/normal_s1.data -f ~/dtidata/normal/normal_s3.data
+
+    if you want to load more than two models once, simply use more "-f" options
+	each indicating a model
+	
+	Each view will provide the same suite of functionalities as that of singleitr.
+
+. multiwindowitr
+	the multiple window DTI streamtube model render, it serves to visualize
+	multiple DTI data models each in a separate window.
+	
+	An example of the most commonly used scenario of this tool might be:
+	./multiwindowitr -f ~/dtidata/normal/normal_s1.data -f ~/dtidata/normal/normal_s3.data
+
+	The functionalities are actually the same as that of multiviewitr
+
+There are detailed instruction on usage for each of these executables, triggered
+by following the name of one of the executables with " --help " or "-h" option only.
+
+2. How to Use this Tool
+-------------------------------------------------------------------------------
+All the three programs introduced above share the same usage as a fact of
+matter, simply because of their same functionalities in terms of user interactions.
+
+The user interactions can be divided into two groups as follows.
+
+2.1 Keyboard Mapping
+
+. alphabetic key response 
+	- '9' Shading model switching
+	- '0' for starting self-rotating exhibition
+    - j/J for rotating clockwise around Y axis
+    - l/L for rotating anticlockwise around Y axis
+    - ,/< for rotating clockwise around X axis
+    - i/I for rotating anticlockwise around X axis
+    - h/H for rotating clockwise around Z axis
+    - k/K for rotating anticlockwise around Z axis
+    - Up arrow for translating upwards (on Y axis)
+    - Down arrow for translating downwards (on Y axis)
+    - Left arrow for translating leftwards (on X axis)
+    - Right arrow for translating rightwards (on X axis)
+    - 'z'/'+' for zooming in
+    - 'Z'/'-' for zooming out
+    - Home for resetting to original positions
+	- Insert for quiting the program (close the window)
+
+. specific response to visualization interaction
+	'c' - switch between two coloring schemes, one is using the original colors
+			provided in the input .data, separate color for each vertex; another 
+			is to apply a uniform color randomly generated for all vertices,
+			i.e. the direction color encoding.
+
+	'g' - randomly change the uniform color mentioned above
+	'd' - switch streamline direction color encoding 
+	'v' - switch between two normal application scheme, one is using each vertex
+			coordinate as its normal, another is to calculate a normal for each
+			face and force the face normal for each of its vertices.
+	'b' - randomly change border color of selection boxes
+	'n' - next DWI image
+	'o' - toggle DWI image embedding
+	'p' - previous DWI image
+	'r' - change all boxes to "removal" mode
+	't' - toggle box-attached In-situ widgets
+
+	'a'	- descrease transparency
+	'A'	- increase transparency
+	'r' - increase tube radius
+	'R'	- decrease tube radius
+	'O'	- toggle Halo effect
+
+. function key response 
+	Page Up          : dump info of the single(or the 1st) box as it touches fibers
+	Page Down        : dump info of the single(or the 1st) box as it is away from any fiber
+	F12              : save fiber indices of currently selected bundle
+	F11              : save geometry of currently selected fibers
+	F10              : enable/disable boxes
+	F9               : toggle box culling
+	F8               : toggle box scaling limit
+	F7               : toggle front face hint
+	F6               : toggle orientation gadgets
+	F5               : toggle synchronization(in multiview or multiwindow tool)
+	F4               : remove the most recently visited box
+	F3               : add a box by duplicating the most recently visited
+	F2               : toggle associate pattern among multiple boxes (AND/OR)
+	F1               : toggle interaction prompt text (if any such a text is loaded by 
+					   using "-p" option).
+
+2.2 Mouse Mapping
+
+. when outside any box
+	left dragging			- rotating all objects in the scene along X/Y axis
+	CTRL + left dragging	- rotating all objects in the scene along Z axis
+
+	right dragging			- zooming in or out all objects in the scene
+	CTRL + right dragging	- translating/panning all objects in the scene
+	SHIFT + right dragging	- scaling all objects in the scene
+	right clicking			- active a short-cut pulldown menu for functionalities provided 
+							  in the box-attached widgets when no box is present currently and the 
+							  cursor is located at about the center of the window (the cursor will
+							  change into a shape of cycle then)
+
+	middle clicking			- switch light (when it is turned on, the light will be 
+							  positioned at the mouse point at the same time)
+	middle dragging			- moving light source on X/Y axis (for turning on the light only)
+	SHIFT + middle dragging - moving light source on Z axis (for turning on the light only)
+
+. when operating on a box
+	left dragging			- pushing or pulling a sinlge face, the face hit now, if
+							  dragging the face
+							- pushing or pulling two adjacent faces, faces
+							  intersect in an edge, if dragging the edge
+							- pushing or pulling three faces, faces intersect at a vertex, if
+							  dragging the vertex
+							- positioning the newly added (cloned) box after
+							  clicking on the "+" widget
+
+	right dragging			- moving the selected box along X/Y axis if dragging
+							  non-center region of any face of the box 
+							- moving along Z axis if dragging any edge of the box 
+							  (the same as CTRL + right dragging box)
+							- congruently scaling the selected box in three
+							  dimensions concurrently if dragging center region
+							  of any face of the box
+	CTRL + right dragging	- moving the selected box along Z axis
+	right clicking			- (for clicking on one of face vertices only)
+							  active a short-cut pulldown menu for functionalities provided 
+							  in the box-attached widgets as an alternative to the widgets 
+	
+2.3 Box-attached In-situ Widgets
+
+Whenever the mouse cursor hovers over a box face, a set of widgets will pop up
+and stuck to the face. Most commonly used functions related to the selection box
+can be achieved with these widgets directly.
+
+Widget will function when mouse is left-clicked and released both within the
+boundary of the widget.
+
+Currently offered widget function mapping:
+
+	'+'		- copy this box to create a new one
+	'-'		- remove this box
+	'&'/'|'	- toggle associate pattern among multiple boxes between AND and OR
+	'a'/'e' - toggle selection mode between ACTIVE and EXCLUSIVE
+	's'		- hide all boxes ( after all boxes are hidden, you can move mouse to
+			  the center region of the window and active the short-cut menu by right clicking
+			  and then choose the 'h' menu item, or you can simply press F10 )
+	'c'/'n'	- toggle streamline context
+	'd'/'x' - toggle DWI b0 image embedding
+	'>'		- move to next b0 slice
+	'<'		- move to previous b0 slice
+	'r'/'b' - toggle brush mode
+
+-------------------------------------------------------------------------------
+contact : haipeng.cai@eagles.usm.edu
+
+Last update: 06/03/2011

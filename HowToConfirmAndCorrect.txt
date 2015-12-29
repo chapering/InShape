@@ -1,0 +1,25 @@
+
+1. start the "Confirm and Correct" procedure by typing following command
+	sh startConfirmAndCorrect.sh
+
+2. modify the initial selection using boxes
+	a. the initial selection is the yellow fibers
+	b. see src/REAMDE for "How to Use this tool"
+
+	Tips:
+	* when a box is too small, the box widget will not be shown on the surface
+	* of the box, you can firstly click any face of the box to select the box
+	* and then right click any of its vertices to pop up a short-cut menu, which
+	* will contain the same functions provided in the box widgets.
+
+3. Please make sure that you have already saved the revised ROI by typing at
+least once for each of following keys before you can move to the next fiber
+bundle confirmation:
+	
+	F11
+	F12
+	Page Down
+
+4. When you finished with the confirmation of one fiber bundle, and saved the
+revision, please press "Insert" to continue.
+	
